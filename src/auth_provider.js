@@ -1,12 +1,4 @@
-const API_ROOT = "https://wings-adv.herokuapp.com"; //https://wings-adv.herokuapp.com
-const HEADERS = {
-  "Content-Type": "application/json",
-  Accept: "application/json",
-  "X-Wings-Mode": "test"
-};
-
-const EMAIL = "admin@wings.com";
-const PASSWORD = "mypasswordxyz";
+import { API_ROOT, HEADERS } from './constants'
 
 const authProvider = {
   login: ({ email, password }) => {
@@ -32,7 +24,7 @@ const authProvider = {
   checkAuth: (params) => Promise.resolve(),
   // checkError: (params) => Promise.resolve(),
   checkError: (error) => {
-    const status = error.status;
+    // const status = error.status;
     // if (status === 401 || status === 403) {
     //   localStorage.removeItem("token");
     //   return Promise.reject();

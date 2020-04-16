@@ -4,13 +4,7 @@ import restProvider from "ra-data-simple-rest";
 import LoginPage from "./pages/login";
 import authProvider from "./auth_provider";
 
-const API_ROOT = "https://wings-adv.herokuapp.com"; //https://wings-adv.herokuapp.com
-
-const HEADERS = {
-  "Content-Type": "application/json",
-  Accept: "application/json",
-  "X-Wings-Mode": "test",
-};
+import { API_ROOT } from './constants';
 
 const App = () => (
   <Admin
