@@ -1,26 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const API_ROOT = "https://wings-adv.herokuapp.com"; //https://wings-adv.herokuapp.com
+const EMAIL = "admin@wings.com";
+const PASSWORD = "mypasswordxyz";
+
+const HEADERS = {
+  "Content-Type": "application/json",
+  Accept: "application/json",
+  "X-Wings-Mode": "test"
+};
+
+const App = () => <h1>Wings Admin </h1>;
 
 export default App;
