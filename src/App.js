@@ -1,16 +1,20 @@
 import React from "react";
-import { Admin, fetchUtils, Resource, List, Datagrid, TextField } from "react-admin";
+import { Admin, Resource } from "react-admin";
 import wingsDataProvider from "./wings_data_provider";
 import httpClient from "./http_client";
 
 import LoginPage from "./pages/login";
 import authProvider from "./auth_provider";
 
-import { API_ROOT, HEADERS } from './constants';
+import { API_ROOT } from './constants';
+
+import UserList from './pages/user/list';
+
+const API_URL = `${API_ROOT}/admin/v1`;
 
 const App = () => (
   <Admin
-    dataProvider={wingsDataProvider(`${API_ROOT}/admin/v1`, httpClient)}
+    dataProvider={wingsDataProvider(API_URL, httpClient)}
     loginPage={LoginPage}
     authProvider={authProvider}
   >
@@ -19,13 +23,3 @@ const App = () => (
 );
 
 export default App;
-
-export const UserList = (props) => (
-  <List {...props}>
-    <Datagrid>
-      <TextField source="id" />
-      <TextField source="email" />
-      <TextField source="role" />
-    </Datagrid>
-   </List>
-);
