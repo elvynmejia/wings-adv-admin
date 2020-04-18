@@ -1,68 +1,9 @@
 import React from "react";
-import Chip from "@material-ui/core/Chip";
-
 import { List, Datagrid, TextField, FunctionField } from "react-admin";
-
-import parseAndFormatDate from "utils";
-
-const TEXT_FIELD_TYPES = {
-  textField: "text",
-  bool: "bool",
-  date: "date",
-};
-
-const BoolField = (props) => {
-  const displayChip = (record) => {
-    return record[props.source] ? (
-      <Chip label="true" color="secondary" />
-    ) : (
-      <Chip label="false" color="primary" />
-    );
-  };
-
-  return <FunctionField {...props} render={(record) => displayChip(record)} />;
-};
-
-const READABLE_FIELDS = {
-  id: {
-    type: TEXT_FIELD_TYPES.textField,
-    sortable: false,
-  },
-  first_name: {
-    type: TEXT_FIELD_TYPES.textField,
-    sortable: false,
-  },
-  last_name: {
-    type: TEXT_FIELD_TYPES.textField,
-    sortable: false,
-  },
-  email: {
-    type: TEXT_FIELD_TYPES.textField,
-    sortable: false,
-  },
-  role: {
-    type: TEXT_FIELD_TYPES.textField,
-    sortable: false,
-  },
-  verified: {
-    type: TEXT_FIELD_TYPES.bool,
-    sortable: false,
-  },
-  created_at: {
-    type: TEXT_FIELD_TYPES.date,
-    sortable: false,
-  },
-};
-
-const DateFieldFormatted = (props) => {
-  const { source } = props;
-  return (
-    <FunctionField
-      {...props}
-      render={(record) => parseAndFormatDate(record[source])}
-    />
-  );
-};
+import BoolField from "components/bool_field";
+import DateFieldFormatted from "components/date_field_formatted";
+import READABLE_FIELDS from "pages/view_schemas/user";
+import TEXT_FIELD_TYPES from "pages/view_schemas/text_field_types";
 
 const UserList = (props) => (
   <List
