@@ -1,23 +1,26 @@
 import React from "react";
 import Chip from "@material-ui/core/Chip";
 
-import {
-  List,
-  Datagrid,
-  TextField,
-} from "react-admin";
+import { List, Datagrid, TextField, FunctionField } from "react-admin";
+
+import parseAndFormatDate from "utils";
 
 const TEXT_FIELD_TYPES = {
   textField: "text",
   bool: "bool",
+  date: "date",
 };
 
-const BoolField = ({ source, record }) => {
-  return record[source] ? (
-    <Chip label="true" color="secondary" />
-  ) : (
-    <Chip label="false" color="primary" />
-  );
+const BoolField = (props) => {
+  const displayChip = (record) => {
+    return record[props.source] ? (
+      <Chip label="true" color="secondary" />
+    ) : (
+      <Chip label="false" color="primary" />
+    );
+  };
+
+  return <FunctionField {...props} render={(record) => displayChip(record)} />;
 };
 
 const READABLE_FIELDS = {
@@ -46,9 +49,19 @@ const READABLE_FIELDS = {
     sortable: false,
   },
   created_at: {
-    type: TEXT_FIELD_TYPES.textField,
+    type: TEXT_FIELD_TYPES.date,
     sortable: false,
   },
+};
+
+const DateFieldFormatted = (props) => {
+  const { source } = props;
+  return (
+    <FunctionField
+      {...props}
+      render={(record) => parseAndFormatDate(record[source])}
+    />
+  );
 };
 
 const UserList = (props) => (
@@ -61,15 +74,12 @@ const UserList = (props) => (
     <Datagrid isRowSelectable={() => false}>
       {Object.keys(READABLE_FIELDS).map((key) => {
         const { type, sortable } = READABLE_FIELDS[key];
-        return type === TEXT_FIELD_TYPES.bool ? (
-          <BoolField
-            source={key}
-            sortable={sortable}
-            render={(record) => record}
-          />
-        ) : (
-          <TextField source={key} sortable={sortable} />
-        );
+        if (type === TEXT_FIELD_TYPES.bool) {
+          return <BoolField source={key} sortable={sortable} />;
+        } else if (type === TEXT_FIELD_TYPES.date) {
+          return <DateFieldFormatted source={key} sortable={sortable} />;
+        }
+        return <TextField source={key} sortable={sortable} />;
       })}
     </Datagrid>
   </List>
