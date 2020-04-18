@@ -18,7 +18,7 @@ const App = () => (
     loginPage={LoginPage}
     authProvider={authProvider}
   >
-   <Resource name="users" list={UserList}/>
+   <Resource name="users" list={UserList} />
   </Admin>
 );
 
