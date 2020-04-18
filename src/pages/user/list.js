@@ -1,5 +1,5 @@
 import React from "react";
-import { List, Datagrid, TextField, FunctionField } from "react-admin";
+import { List, Datagrid, TextField } from "react-admin";
 import BoolField from "components/bool_field";
 import DateFieldFormatted from "components/date_field_formatted";
 import READABLE_FIELDS from "pages/view_schemas/user";
