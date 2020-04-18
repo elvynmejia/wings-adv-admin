@@ -1,46 +1,53 @@
 import React from "react";
-import { List, Datagrid, TextField, BooleanField } from "react-admin";
+import Chip from "@material-ui/core/Chip";
+
+import {
+  List,
+  Datagrid,
+  TextField,
+} from "react-admin";
 
 const TEXT_FIELD_TYPES = {
-  textField: "TextField",
-  bool: "BooleanField",
+  textField: "text",
+  bool: "bool",
+};
+
+const BoolField = ({ source, record }) => {
+  return record[source] ? (
+    <Chip label="true" color="secondary" />
+  ) : (
+    <Chip label="false" color="primary" />
+  );
 };
 
 const READABLE_FIELDS = {
   id: {
     type: TEXT_FIELD_TYPES.textField,
     sortable: false,
-    componet: null,
   },
   first_name: {
     type: TEXT_FIELD_TYPES.textField,
     sortable: false,
-    componet: null,
   },
   last_name: {
     type: TEXT_FIELD_TYPES.textField,
     sortable: false,
-    componet: null,
   },
   email: {
     type: TEXT_FIELD_TYPES.textField,
     sortable: false,
-    componet: null,
   },
   role: {
     type: TEXT_FIELD_TYPES.textField,
     sortable: false,
-    componet: null,
   },
   verified: {
     type: TEXT_FIELD_TYPES.bool,
     sortable: false,
-    componet: <BooleanField source="verified" sortable={false} />,
   },
   created_at: {
     type: TEXT_FIELD_TYPES.textField,
     sortable: false,
-    componet: null,
   },
 };
 
@@ -53,9 +60,13 @@ const UserList = (props) => (
   >
     <Datagrid isRowSelectable={() => false}>
       {Object.keys(READABLE_FIELDS).map((key) => {
-        const { componet, sortable } = READABLE_FIELDS[key];
-        return componet ? (
-          componet
+        const { type, sortable } = READABLE_FIELDS[key];
+        return type === TEXT_FIELD_TYPES.bool ? (
+          <BoolField
+            source={key}
+            sortable={sortable}
+            render={(record) => record}
+          />
         ) : (
           <TextField source={key} sortable={sortable} />
         );
