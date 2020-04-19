@@ -6,6 +6,10 @@ const READABLE_FIELDS = {
     type: TEXT_FIELD_TYPES.textField,
     sortable: false,
   },
+  public_id: {
+    type: TEXT_FIELD_TYPES.textField,
+    sortable: false,
+  },
   first_name: {
     type: TEXT_FIELD_TYPES.textField,
     sortable: false,
