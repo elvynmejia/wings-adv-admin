@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import {
   List,
   Datagrid,
@@ -6,20 +6,24 @@ import {
 } from "react-admin";
 
 import attributes from "components/attributes";
+import VerifyButton from "./verify";
 
 const UserList = (props) => (
-  <List
-    {...props}
-    title="List of Users"
-    bulkActionButtons={false}
-    sortable={false}
-    exporter={false}
-  >
-    <Datagrid isRowSelectable={() => false}>
-      {attributes()}
-      <ShowButton />
-    </Datagrid>
-  </List>
+  <Fragment>
+    <List
+      {...props}
+      title="List of Users"
+      bulkActionButtons={false}
+      sortable={false}
+      exporter={false}
+    >
+      <Datagrid isRowSelectable={() => false}>
+        {attributes()}
+        <ShowButton />
+        <VerifyButton source={"verified"} label="" />
+      </Datagrid>
+    </List>
+  </Fragment>
 );
 
 export default UserList;
