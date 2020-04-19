@@ -12,7 +12,7 @@ import CheckIcon from "@material-ui/icons/Check";
 const VerifyButton = (props) => {
   // apiAction is a hack to be able to PUT/PATCH to users/id/verify for example
   const apiAction = 'verify';
-  const { record, source } = props;
+  const { record, source, resource } = props;
   const [open, setOpen] = useState(false);
   const notify = useNotify();
 
@@ -20,7 +20,7 @@ const VerifyButton = (props) => {
   const handleDialogClose = () => setOpen(false);
 
   const [confirm, { loading }] = useUpdate(
-    "users",
+    resource,
     record.id,
     { apiAction },
     record,
