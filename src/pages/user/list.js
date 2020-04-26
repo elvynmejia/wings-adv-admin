@@ -16,6 +16,7 @@ const UserList = (props) => (
       bulkActionButtons={false}
       sortable={false}
       exporter={false}
+      pagination={false}
     >
       <Datagrid isRowSelectable={() => false}>
         {attributes()}

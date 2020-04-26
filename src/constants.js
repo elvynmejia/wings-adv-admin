@@ -1,4 +1,4 @@
-const API_ROOT = "http://localhost:3000/"; //"https://wings-adv.herokuapp.com";
+const API_ROOT = process.env.REACT_APP_API_ROOT;
 
 const HEADERS = {
   "Content-Type": "application/json",
@@ -6,7 +6,4 @@ const HEADERS = {
   "X-Wings-Mode": "test",
 };
 
-const EMAIL = "admin@wings.com";
-const PASSWORD = "mypasswordxyz";
-
-export { API_ROOT, HEADERS, EMAIL, PASSWORD };
+export { API_ROOT, HEADERS };

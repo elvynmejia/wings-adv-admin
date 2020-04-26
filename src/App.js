@@ -11,7 +11,7 @@ import { API_ROOT } from './constants';
 import UserList from './pages/user/list';
 import UserShow from './pages/user/show';
 
-const API_URL = `${API_ROOT}admin/v1`;
+const API_URL = `${API_ROOT}/admin/v1`;
 
 const App = () => (
   <Admin
