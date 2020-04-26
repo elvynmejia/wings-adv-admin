@@ -19,7 +19,7 @@ const App = () => (
     loginPage={LoginPage}
     authProvider={authProvider}
   >
-   <Resource name="users" list={UserList} show={UserShow} />
+    <Resource name="users" list={UserList} show={UserShow} />
   </Admin>
 );
 
