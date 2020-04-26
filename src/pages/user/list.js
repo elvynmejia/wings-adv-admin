@@ -21,7 +21,7 @@ const UserList = (props) => (
       <Datagrid isRowSelectable={() => false}>
         {attributes()}
         <ShowButton />
-        <VerifyButton source={"verified"} label="" resource="users" />
+        <VerifyButton source={'verified'} label="" resource="users" />
       </Datagrid>
     </List>
   </Fragment>

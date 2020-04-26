@@ -1,7 +1,7 @@
 import React from 'react';
 import { Admin, Resource } from 'react-admin';
 import wingsDataProvider from './wings_data_provider';
-import httpClient from "./http_client";
+import httpClient from './http_client';
 
 import LoginPage from './pages/login';
 import authProvider from './auth_provider';
