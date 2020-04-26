@@ -1,5 +1,4 @@
-
-import TEXT_FIELD_TYPES from "./text_field_types";
+import TEXT_FIELD_TYPES from './text_field_types';
 
 const READABLE_FIELDS = {
   id: {

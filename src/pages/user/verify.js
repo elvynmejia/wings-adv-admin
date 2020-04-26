@@ -1,13 +1,13 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState } from 'react';
 import {
   Button,
   Confirm,
   useUpdate,
   useNotify,
   Notification,
-} from "react-admin";
+} from 'react-admin';
 
-import CheckIcon from "@material-ui/icons/Check";
+import CheckIcon from '@material-ui/icons/Check';
 
 const VerifyButton = (props) => {
   // apiAction is a hack to be able to PUT/PATCH to users/id/verify for example
@@ -28,11 +28,11 @@ const VerifyButton = (props) => {
       undoable: true,
       onSuccess: ({ data }) => {
         setOpen(false);
-        notify("User verified", "info", {}, true);
+        notify('User verified', 'info', {}, true);
       },
       onFailure: (error) => {
         setOpen(false);
-        notify(`Error: ${error.message}`, "warning");
+        notify(`Error: ${error.message}`, 'warning');
       },
     }
   );

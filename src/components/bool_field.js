@@ -1,6 +1,6 @@
-import React from "react";
-import Chip from "@material-ui/core/Chip";
-import { FunctionField } from "react-admin";
+import React from 'react';
+import Chip from '@material-ui/core/Chip';
+import { FunctionField } from 'react-admin';
 
 const BoolField = (props) => {
   const displayChip = (record) => {

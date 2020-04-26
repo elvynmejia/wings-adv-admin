@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 import {
   SimpleShowLayout,
   Show,
-} from "react-admin";
+} from 'react-admin';
 
-import attributes from "components/attributes";
+import attributes from 'components/attributes';
 
 const UserShow = (props) => {
   return (

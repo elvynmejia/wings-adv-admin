@@ -1,6 +1,6 @@
-import React from "react";
-import { FunctionField } from "react-admin";
-import parseAndFormatDate from "utils";
+import React from 'react';
+import { FunctionField } from 'react-admin';
+import parseAndFormatDate from 'utils';
 
 const DateFieldFormatted = (props) => {
   const { source } = props;

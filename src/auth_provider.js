@@ -1,11 +1,9 @@
-import { API_ROOT, HEADERS } from './constants'
-
-const AUTH_TOKEN_NAME = 'authenticationToken';
+import { API_ROOT, HEADERS, AUTH_TOKEN_NAME } from './constants'
 
 const authProvider = {
   login: ({ email, password }) => {
     return fetch(`${API_ROOT}/v1/authenticate`, {
-      method: "POST",
+      method: 'POST',
       headers: HEADERS,
       body: JSON.stringify({
         email: email,

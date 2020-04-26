@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 import {
   TextField,
   BooleanField,
   FunctionField,
-} from "react-admin";
+} from 'react-admin';
 
-import READABLE_FIELDS from "pages/view_schemas/user";
-import TEXT_FIELD_TYPES from "pages/view_schemas/text_field_types";
-import parseAndFormatDate from "utils";
+import READABLE_FIELDS from 'pages/view_schemas/user';
+import TEXT_FIELD_TYPES from 'pages/view_schemas/text_field_types';
+import parseAndFormatDate from 'utils';
 
 const attributes = () => {
   return Object.keys(READABLE_FIELDS).map((key) => {

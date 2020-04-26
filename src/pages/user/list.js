@@ -1,12 +1,12 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react';
 import {
   List,
   Datagrid,
   ShowButton,
-} from "react-admin";
+} from 'react-admin';
 
-import attributes from "components/attributes";
-import VerifyButton from "./verify";
+import attributes from 'components/attributes';
+import VerifyButton from './verify';
 
 const UserList = (props) => (
   <Fragment>
