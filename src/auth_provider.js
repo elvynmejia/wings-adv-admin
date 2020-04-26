@@ -1,5 +1,7 @@
 import { API_ROOT, HEADERS } from './constants'
 
+const AUTH_TOKEN_NAME = 'authenticationToken';
+
 const authProvider = {
   login: ({ email, password }) => {
     return fetch(`${API_ROOT}/v1/authenticate`, {
@@ -17,21 +19,27 @@ const authProvider = {
         return response.json();
       })
       .then(({ authentication_token }) =>
-        localStorage.setItem("authenticationToken", authentication_token)
+        localStorage.setItem(AUTH_TOKEN_NAME, authentication_token)
       )
   },
-  logout: (params) => Promise.resolve(),
-  checkAuth: (params) => Promise.resolve(),
-  // checkError: (params) => Promise.resolve(),
-  checkError: (error) => {
-    // const status = error.status;
-    // if (status === 401 || status === 403) {
-    //   localStorage.removeItem("token");
-    //   return Promise.reject();
-    // }
-    // return Promise.resolve();
-    console.log('====================== wtf ======================');
+  logout: () => {
+    localStorage.removeItem(AUTH_TOKEN_NAME);
+    return Promise.resolve()
   },
+  checkAuth: () => {
+    return localStorage.getItem(AUTH_TOKEN_NAME)
+      ? Promise.resolve()
+      : Promise.reject()
+  },
+  checkError: (error) => {
+    const status = error.status;
+      if (status === 401 || status === 403) {
+        localStorage.removeItem(AUTH_TOKEN_NAME);
+        return Promise.reject();
+      }
+    return Promise.resolve();
+  },
+  // no granular permissions needed
   getPermissions: (params) => Promise.resolve(),
 };
 
